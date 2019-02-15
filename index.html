@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="nav">
+        <ul>
+            <li>申请试用</li>
+            <li>登录</li>
+        </ul>
+    </div>
+    <div id="allProduct">
+        <ul>
+            <li>选址雷达</li>
+            <li>营销雷达</li>
+            <li>商圈雷达</li>
+            <li>网点雷达</li>
+            <li>金融验真</li>
+        </ul>
+    </div>
+    <div id="main">
+        <div id="logo">
+            <div id="logoText">
+                <span style="color: #FE3A59;">神灯</span>·商业大数据平台
+            </div>
+            <div id="en">
+                Aladdin Commercial Big Data  Platform
+            </div>
+            <div id="indexBtn">
+                <div class="cro crohover"></div>
+                <div class="cro"></div>
+                <div class="cro"></div>
+                <div class="cro"></div>
+                <div class="cro"></div>
+            </div>
+        </div>
+        <div id="pic">
+            <div class="help">
+                <div class="singlePic">
+                    <div class="content">
+                        <span>营销雷达</span>
+                        <p>精准定位客户<br>高效实现营销目标<br>广告投放评估</p>
+                    </div>
+                </div>
+                <div class="singlePic">
+                    <div class="content">
+                        <span>营销雷达</span>
+                        <p>精准定位客户<br>高效实现营销目标<br>广告投放评估</p>
+                    </div>
+                </div>
+                <div class="singlePic">
+                    <div class="content">
+                        <span>营销雷达</span>
+                        <p>精准定位客户<br>高效实现营销目标<br>广告投放评估</p>
+                    </div>
+                </div>
+                <div class="singlePic">
+                    <div class="content">
+                        <span>营销雷达</span>
+                        <p>精准定位客户<br>高效实现营销目标<br>广告投放评估</p>
+                    </div>
+                </div>
+                <div class="singlePic">
+                    <div class="content">
+                        <span>营销雷达</span>
+                        <p>精准定位客户<br>高效实现营销目标<br>广告投放评估</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="picProcess"><span>01</span></div>
+    <div id="bottom">Copyright © 2018-2020 浙江移动有限公司 All Rights Reserved</div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        //根据窗口高度设定容器高度
+        var height = $(window).innerHeight();
+        $('body').css({
+            height: height,
+        })
+        var picHeight = 2/3 * height;
+        $('#main').css({
+            height: picHeight,
+        })
+
+        $('.cro').click(function () {
+            var left = $(this).index();
+            $('.help').stop(true,false).animate({
+                left: (left * -88) + '%'
+            },1000,'swing')
+            $("#picProcess span").html( "0" + (left+1));
+            $(this).addClass('crohover').siblings().removeClass('crohover');
+        })
+
+        var timeIndex = 1
+        var time = setInterval(function () {
+            $('.help').stop(true,false).animate({
+                left: (timeIndex * -88) + '%'
+            },1000,'swing');
+            $("#picProcess span").html("0" + (timeIndex+1));
+            $('.cro').eq(timeIndex).addClass('crohover').siblings().removeClass('crohover');
+            timeIndex = timeIndex++ > 3 ? 0 : timeIndex ++
+        },4000)
+    </script>
+</body>
+</html>
